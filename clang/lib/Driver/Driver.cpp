@@ -31,6 +31,7 @@
 #include "ToolChains/Lanai.h"
 #include "ToolChains/Linux.h"
 #include "ToolChains/MSP430.h"
+#include "ToolChains/MOS.h"
 #include "ToolChains/MSVC.h"
 #include "ToolChains/MinGW.h"
 #include "ToolChains/MipsLinux.h"
@@ -6665,6 +6666,9 @@ const ToolChain &Driver::getToolChain(const ArgList &Args,
       break;
     case llvm::Triple::Solaris:
       TC = std::make_unique<toolchains::Solaris>(*this, Target, Args);
+      break;
+    case llvm::Triple::MOS:
+      TC = std::make_unique<toolchains::MOS>(*this, Target, Args);
       break;
     case llvm::Triple::CUDA:
       TC = std::make_unique<toolchains::NVPTXToolChain>(*this, Target, Args);

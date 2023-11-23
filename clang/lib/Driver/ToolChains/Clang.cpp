@@ -3795,7 +3795,7 @@ static void RenderSCPOptions(const ToolChain &TC, const ArgList &Args,
   const llvm::Triple &EffectiveTriple = TC.getEffectiveTriple();
 
   if (!EffectiveTriple.isOSFreeBSD() && !EffectiveTriple.isOSLinux() &&
-      !EffectiveTriple.isOSFuchsia())
+      !EffectiveTriple.isOSFuchsia() && !EffectiveTriple.isOSMOS())
     return;
 
   if (!EffectiveTriple.isX86() && !EffectiveTriple.isSystemZ() &&
