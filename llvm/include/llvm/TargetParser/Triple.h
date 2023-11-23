@@ -224,6 +224,7 @@ public:
     Emscripten,
     ShaderModel, // DirectX ShaderModel
     LiteOS,
+    MOS,        // MOS
     Serenity,
     Vulkan,      // Vulkan SPIR-V
     LastOSType = Vulkan
@@ -660,6 +661,11 @@ public:
   /// Tests whether the OS is Linux.
   bool isOSLinux() const {
     return getOS() == Triple::Linux;
+  }
+
+  /// Tests whether the OS is MOS.
+  bool isOSMOS() const {
+    return getOS() == Triple::MOS;
   }
 
   /// Tests whether the OS is kFreeBSD.

@@ -67,6 +67,7 @@ add_clang_library(clangDriver
   ToolChains/Linux.cpp
   ToolChains/MipsLinux.cpp
   ToolChains/MinGW.cpp
+  ToolChains/MOS.cpp
   ToolChains/MSP430.cpp
   ToolChains/MSVC.cpp
   ToolChains/NaCl.cpp

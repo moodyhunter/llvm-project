@@ -274,6 +274,7 @@ StringRef Triple::getOSTypeName(OSType Kind) {
   case ZOS: return "zos";
   case ShaderModel: return "shadermodel";
   case LiteOS: return "liteos";
+  case MOS: return "mos";
   case XROS: return "xros";
   case Vulkan: return "vulkan";
   }
@@ -648,6 +649,7 @@ static Triple::OSType parseOS(StringRef OSName) {
     .StartsWith("emscripten", Triple::Emscripten)
     .StartsWith("shadermodel", Triple::ShaderModel)
     .StartsWith("liteos", Triple::LiteOS)
+    .StartsWith("mos", Triple::MOS)
     .StartsWith("serenity", Triple::Serenity)
     .StartsWith("vulkan", Triple::Vulkan)
     .Default(Triple::UnknownOS);
