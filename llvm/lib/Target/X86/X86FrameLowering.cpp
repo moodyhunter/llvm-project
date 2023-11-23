@@ -3277,7 +3277,7 @@ void X86FrameLowering::adjustForSegmentedStacks(
     report_fatal_error("Segmented stacks do not support vararg functions.");
   if (!STI.isTargetLinux() && !STI.isTargetDarwin() && !STI.isTargetWin32() &&
       !STI.isTargetWin64() && !STI.isTargetFreeBSD() &&
-      !STI.isTargetDragonFly())
+      !STI.isTargetDragonFly() && !STI.isTargetMOS())
     report_fatal_error("Segmented stacks not supported on this platform.");
 
   // Eventually StackSize will be calculated by a link-time pass; which will
@@ -3317,7 +3317,7 @@ void X86FrameLowering::adjustForSegmentedStacks(
 
   // Read the limit off the current stacklet off the stack_guard location.
   if (Is64Bit) {
-    if (STI.isTargetLinux()) {
+    if (STI.isTargetLinux() || STI.isTargetMOS()) {
       TlsReg = X86::FS;
       TlsOffset = IsLP64 ? 0x70 : 0x40;
     } else if (STI.isTargetDarwin()) {
